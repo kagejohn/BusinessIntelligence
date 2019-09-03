@@ -70,8 +70,10 @@ def generate_plot(data):
     plt.scatter(x_values, y_values, s=100)
     fig.savefig('./prices.png', bbox_inches='tight')
 
-#def generate_histogram():
-#    ....
+def generate_histogram(data):
+    fig = plt.figure()
+    plt.hist(data, 7)
+    fig.savefig('./histogram.png', bbox_inches='tight')
 
 def run():
     file_url = 'https://raw.githubusercontent.com/datsoftlyngby/' \
@@ -87,7 +89,7 @@ def run():
     avg_price = compute_avg_price(data)
     print(avg_price)
     generate_plot(data)
-#    ...
+    generate_histogram(data)
 
 if __name__ == '__main__':
     run()
