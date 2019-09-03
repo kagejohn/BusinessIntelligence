@@ -1,7 +1,9 @@
 ### 1
 
 price_list.csv
+
 price_list.txt
+
 prices.png
 
 ### 2
@@ -423,12 +425,19 @@ line 93: it calls the method run.
 
 ### 5
 
+   ```python
+
 def generate_histogram(data):
     fig = plt.figure()
     plt.hist(data, 7)
     fig.savefig('./histogram.png', bbox_inches='tight')
 	
+   ```
+   ```python
+	
 	generate_histogram(data)
+	
+   ```
 
 ### 6
 
