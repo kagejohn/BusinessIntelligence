@@ -74,6 +74,7 @@ def generate_histogram(data):
     fig = plt.figure()
     plt.hist(data, 7)
     fig.savefig('./histogram.png', bbox_inches='tight')
+#	6: I am not sure if i just don't know how to read a histogram or i failed miserably because the result looks useless.
 
 def run():
     file_url = 'https://raw.githubusercontent.com/datsoftlyngby/' \

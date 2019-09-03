@@ -1,10 +1,10 @@
-###1
+### 1
 
 price_list.csv
 price_list.txt
 prices.png
 
-###2
+### 2
 
 A CSV file:
 
@@ -271,36 +271,165 @@ v§<ƒ&üõß »ÓS}ZÎw#‰ˆˆd‚S³Ú¨ØmvGcô+
 O<Ayy9\.:::PRR‚††S“ªªÀ›7o——§?KaµZqşüyX­V477£½½6›
 ùùùxğà|>®_¿nrúÿ¯GáöíÛp:ØŞŞÆÀÀ Ş½{‡ÑÑQv–¦òòòôgäää ¨¨H_go‡˜ı³¾³®¿¿_œN§(Š"^¯W¦§§ÍD˜œœ G>@@D~½’ ££Cìv»dee‰ßï—¥¥%sCÓ±W¯^ég~üø!---RXX(.\ÆÆFY]]5/4Éıû÷¥¬¬LE‘ââbñûı266¦ï³³³áÏ×ˆ°·Ãş1if#""":SøŒ‘AœˆˆˆˆâàDDDDd'""""ƒ88ÄÁ‰ˆˆˆÈ NDDDDqp""""2ˆƒ‘AœˆˆˆˆâàDDDDdĞOù]R	İl    IEND®B`‚
 
-###3
+### 3
 
 3 files, 2 files with the data in text form and 1 image.
 
-###4
+### 4
 
 line 1: it imports a library by the name os.
+
 line 2: it imports a library by the name csv.
+
 line 3: it imports a library by the name requests.
+
 line 4: it imports a library by the name platform.
+
 line 5: it imports a library by the name statistics.
+
 line 6: it imports a library by the name matplotlib.
+
 line 7: it uses a part of the library matplotlib by the name agg.
+
 line 8: it imports a method from the library matplotlib by the name pyplot and names it plt.
+
 line 11: it defines a method by the name download_txt with the 2 parameters url and save_path and defines the default value of save_path to ./downloaded .
+
 line 12: it sets a variable by the name response to the output of requests.get with the input parameter of url.
+
 line 13: it uses a with statment so that it automatically exits the file again, then it calls open with the parameters save_path and the string 'wb' and names it f.
+
 line 14: it writes the content of response into f.
+
 line 17: it defines a method by the name generate_csv with the 2 parameters txt_input_path and csv_output_path.
+
 line 18: it uses a with statment so that it automatically exits the file again, then it calls open with the parameters txt_input_path and an encoding 'utf-8' and names it f.
+
 line 19: it sets the variable txt_content to an array of the output of f.readlines.
+
 line 21: it sets the variable rows to a 2 dimensional array of strings.
+
 line 22: it stats a for loop with the item name of line on the array of txt_content.
+
 line 23: it takes the current line variable and removes any trailing spaces and removes '  * '.
+
 line 24: it sets the variables address, price and sqm to line split by tab.
+
 line 25: it sets the variables street and city to address split by ; .
+
 line 26: it sets the variable price_per_sqm to the int representation of price floor divided by the int representation of sqm.
+
 line 27: it sets the variable row to the concatenated result of street, city, price, sqm and price_per_sqm.
+
 line 28: it appends the row made in this loop to the array of rows.
 
+line 30: it checks if the current platform is windows.
 
-###5
-###6
+line 31: it sets the variable newline to an empty string.
+
+line 32: it starts the alternate action.
+
+line 33: it sets the variable newline to None.
+
+line 35: it uses a with statment so that it automatically exits the file again, then it calls open with the parameters csv_output_path, 'w', newline=newline and an encoding 'utf-8' and names it f.
+
+line 36: it sets the variable output_writer to the output of csv.writer with the input of f.
+
+line 37: it stats a for loop with the item name of row on the array of rows.
+
+line 38: it takes the current row variable and writes it as a row to output_writer.
+
+line 41: it defines a method by the name read_prices with the parameter csv_input_path.
+
+line 42: it uses a with statment so that it automatically exits the file again, then it calls open with the parameters csv_input_path and an encoding 'utf-8' and names it f.
+
+line 43: it sets the variable reader to csv.reader with the input of f.
+
+line 44: it sets a throwaway variable to the first row of the reader using next to move the index to the first index.
+
+line 46: it sets the variable idxs to an empty array.
+
+line 47: it sets the variable prices to an empty array.
+
+line 48: it stats a for loop with the item name of row on the array of reader.
+
+line 49: it sets the first and last 2 items in the current array row to throwaway variables and the middle item to the variable price.
+
+line 50: it appends the readers current line number to the array idxs.
+
+line 51: it appends the int representation of price to the prices array.
+
+line 53: it converts the arrays idxs and prices into an object/array of tuples that contains the matching idx and price and then it converts it in to a list that it returns.
+
+line 56: it defines a method by the name compute_avg_price with the parameter data.
+
+line 57: it sets a throwaway variable and the variable prices to the converted result of the unpacked arrays in data after converting it into an object/array of tuples.
+
+line 58: it sets the variable avg_price to the mean of the array prices.
+
+line 60: it uses a with statment so that it automatically exits the file again, then it calls open with the parameters '/tmp/avg_price.txt', 'w' and an encoding 'utf-8' and names it f.
+
+line 61: it writes the string representation of avg_price to f.
+
+line 63: it returns avg_price.
+
+line 66: it defines a method by the name generate_plot with the parameter data.
+
+line 68: it sets the variables x_values and y_values to the converted result of the unpacked arrays in data after converting it into an object/array of tuples.
+
+line 69: it sets the variable fig to the outout of the method figure on plt.
+
+line 70: it uses the method scatter on plt with the parameters x_values, y_values and s=100.
+
+line 71: it uses the method savefig on fig with the parameters './prices.png' and bbox_inches='tight'.
+
+line 73: it makes a comment where in it defines a method by the name generate_histogram.
+
+line 74: it makes a comment where in it illustrates that the user should complete the code.
+
+line 76: it defines a method by the name run.
+
+line 77: it sets the variable file_url to the multiline string 'https://raw.githubusercontent.com/datsoftlyngby/'
+
+line 78: it continues the multiline from the previous line with 'soft2019fall-bi-teaching-material/master/'
+
+line 79: it finishes the multiline from the previous line with 'week35/data/price_list.txt'
+
+line 80: it sets the variable txt_file_name to os.path.basename with the parameter file_url.
+
+line 81: it sets txt_path to concatenation of './' and txt_file_name.
+
+line 82: it calls download_txt with the 2 parameters file_url and txt_path.
+
+line 83: it sets the variable csv_file_name to 'price_list.csv'.
+
+line 84: it sets the variable csv_path to concatenation of os.getcwd() and csv_file_name.
+
+line 85: it calls generate_csv with the 2 parameters txt_path and csv_path.
+
+line 86: it sets the variable data to output of the method read_prices with the parameter csv_path.
+
+line 87: it sets the variable avg_price to output of the method compute_avg_price with the parameter data.
+
+line 88: it prints the variable avg_price.
+
+line 89: it calls generate_plot with the variable data.
+
+line 90: it makes a comment where in it illustrates that the user should complete the code.
+
+line 92: it checks if the variable __name__ is set to '__main__'.
+
+line 93: it calls the method run.
+
+### 5
+
+def generate_histogram(data):
+    fig = plt.figure()
+    plt.hist(data, 7)
+    fig.savefig('./histogram.png', bbox_inches='tight')
+	
+	generate_histogram(data)
+
+### 6
+
+I am not sure if i just don't know how to read a histogram or i failed miserably because the result looks useless.
